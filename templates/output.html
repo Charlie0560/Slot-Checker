@@ -3,13 +3,13 @@
 {% block body %}
 
 <table class="table-responsive" border=" 3px solid white" style="text-align: center;">
-    <tr>
+    <tr style="padding-left: 3px; padding-right: 3px;">
         {% for header in heading %}
         <th  style="text-align: center;">{{header}}</th>
         {% endfor %}
     </tr>
     {% for list in message %}
-    <tr>
+    <tr style="padding-left: 3px; padding-right: 3px;">
         {% for item in list %}
         <td > {{item}} </td>
         {% endfor %}
@@ -20,6 +20,7 @@
 </table>
 <br>
 <p>This Website Is Only For Checking Available Slots</p>
-<p>For Booking Slot Please Visit Official Website Of</p>
+<p>For Booking Slot Please Visit Official Website </p>
+<p>--: LINK :--</p>
 <a href="https://selfregistration.cowin.gov.in/" style="color: aqua;">COVID VACCINE INDIA</a>
 {% endblock %}

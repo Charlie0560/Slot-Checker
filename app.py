@@ -27,7 +27,7 @@ def products():
 def submit():
     name = request.form.get("name")
     if not name:
-        return render_template("error.html", message="Please Enter District ID")
+        return render_template("error.html", message="Please Enter District Name")
 
     else:
         def get_sessions(data):
@@ -50,7 +50,7 @@ def submit():
             return [session for session in get_sessions(data) if session["capacity"] > 0 and session["age_limit"] == 18]
 
         def create_output(session_info):
-            return [session_info['date'],session_info['name'],session_info['pincode'],session_info['capacity'],(session_info['vaccine'],session_info['type'])]
+            return [session_info['date'],session_info['name'],session_info['pincode'],session_info['capacity'],session_info['vaccine']+" "+session_info['type']]
 
         content = [create_output(session_info) for session_info in get_for_seven_days(datetime.now())]
         if not content:
