@@ -1,7 +1,5 @@
 from datetime import datetime
 import requests
-import email
-import smtplib
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -28,12 +26,8 @@ def products():
 @app.route("/submit", methods=["POST"])
 def submit():
     name = request.form.get("name")
-    username = request.form.get("mail")
-    
     if not name:
         return render_template("error.html", message="Please Enter District ID")
-    if not username:
-        return render_template("error.html", message="Please Enter Mail ID")
 
     else:
         def get_sessions(data):
@@ -56,32 +50,11 @@ def submit():
             return [session for session in get_sessions(data) if session["capacity"] > 0 and session["age_limit"] == 18]
 
         def create_output(session_info):
-            return f"{session_info['date']} , {session_info['name']},(pincode: {session_info['pincode']}), (Capacity: {session_info['capacity']}) ,{session_info['vaccine']}, {session_info['type']}"
+            return [session_info['date'],session_info['name'],session_info['pincode'],session_info['capacity'],(session_info['vaccine'],session_info['type'])]
 
-        content = "\n\n".join([create_output(session_info) for session_info in get_for_seven_days(datetime.now())])
-        sender = "slotavailibility12345@gmail.com"
-        sender_password = "pblMHTBC@12345"
-        msg = str(content) + str("\n\nTo book your slot go to website https://selfregistration.cowin.gov.in/\n\n Go to our website again")
+        content = [create_output(session_info) for session_info in get_for_seven_days(datetime.now())]
         if not content:
             return render_template("noavailable.html",message="No slots available for your region")
         else:
-            username = request.form.get("mail")
-            email_msg = email.message.EmailMessage()
-            email_msg["Subject"] = "Vaccination Slot Open"
-            email_msg["From"] = username
-            email_msg["To"] = username
-            email_msg.set_content(msg)
-
-            with smtplib.SMTP(host='smtp.gmail.com', port='587') as server:
-                smtpserver = smtplib.SMTP("smtp.gmail.com", 587)
-                smtpserver.starttls()
-                smtpserver.ehlo()
-                smtpserver.login(sender, sender_password)
-                smtpserver.send_message(email_msg)
-            return render_template("output.html",message="Check Your Mail For Report" )
-        
-
-
-if __name__ == '__main__':
-    app.debug = True
-    app.run()
+            heading=("DATE","HOSP NAME","PINCODE","CAPACITY","VACCINE,FEE")
+            return render_template("output.html",heading=heading, message = content)

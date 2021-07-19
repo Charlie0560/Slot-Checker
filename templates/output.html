@@ -2,11 +2,24 @@
 
 {% block body %}
 
-    {{ message }}
-    <br>
-    <button class="btn btn-outline-primary" style="background-color: aqua;size: 25px; color: black; border: 2px solid black; border-radius: 25px;" type="button"><a href="https://mail.google.com"><span class="glyphicon glyphicon-envelope"> </span> Open Gmail</a></button>
-    <br>
-    <p>This Website Is Only For Checking Available Slots</p>
-    <p>For Booking Slot Please Visit Official Website Of</p>
-    <a href="https://selfregistration.cowin.gov.in/" style="color: aqua;">COVID VACCINE INDIA</a> 
+<table class="table-responsive" border=" 3px solid white" style="text-align: center;">
+    <tr>
+        {% for header in heading %}
+        <th  style="text-align: center;">{{header}}</th>
+        {% endfor %}
+    </tr>
+    {% for list in message %}
+    <tr>
+        {% for item in list %}
+        <td > {{item}} </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+
+
+</table>
+<br>
+<p>This Website Is Only For Checking Available Slots</p>
+<p>For Booking Slot Please Visit Official Website Of</p>
+<a href="https://selfregistration.cowin.gov.in/" style="color: aqua;">COVID VACCINE INDIA</a>
 {% endblock %}
