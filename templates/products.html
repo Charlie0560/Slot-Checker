@@ -9,6 +9,9 @@
   <link href="/static/css/index.css" rel="stylesheet">
   <script src="/static/js/jquery.js"></script>
   <script src="/static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="responsive-tables.js"></script>
+  <link href="responsive-tables.css" type="text/css" media="screen" rel="stylesheet"/>
+
 </head>
 
 <body style="background-color: black; padding-top: 50px;">
@@ -45,11 +48,11 @@
     <div id="banner_image">
       <div class="container">
         <center>
-          <div id="banner_content1" style="border: 2px solid rgb(84, 182, 228); border-radius: 25px;">
+          <div id="banner_content1" style="border: 2px solid rgb(84, 182, 228); border-radius: 25px; box-sizing: border-box;">
             <form action="/submit" method="post">
               <h1>Check Slot Availibility</h1>
               <br>
-              <select class="w-100" id="first" data-live-search="true" name="name" 
+              <select class="w-100" id="first" data-live-search="true" name="name"
                 style="text-align: center;  border: 2px solid rgb(84, 182, 228); border-radius: 25px; text-align: center; color: black;">
                 <option disabled selected class="dropdown-header">----------Enter District--------</option>
                 <option value=" 320 "> Agar </option>
@@ -62,7 +65,7 @@
                 <option value=" 364 "> Akola </option>
                 <option value=" 301 "> Alappuzha </option>
                 <option value=" 623 "> Aligarh </option>
-                <option value=" 357 "> Alirajpur </option>
+                <option value=" 357 "> Alirajpur </optaion>
                 <option value=" 704 "> Almora </option>
                 <option value=" 512 "> Alwar </option>
                 <option value=" 625 "> Ambedkar Nagar </option>
@@ -526,11 +529,12 @@
                 <option value=" 368 "> Yavatmal </option>
                 <option value=" 442 "> Zunheboto </option>
               </select>
-              <br><br>
+              <br>
+              <br>
               <Input type="submit" class="btn"
                 style="background-color: aqua;size: 25px; color: black; border: 2px solid black; border-radius: 25px;">
               <br><br>
-              
+
               {% block body %}
 
               {% endblock %}
@@ -542,7 +546,7 @@
 
 
 </body>
-<footer>
+<footer class="footer2">
   <div class="container">
     <center>
       <p>This Website is Made by First Year Students of PICT</p>
