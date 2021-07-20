@@ -33,6 +33,7 @@ h6 {
     color: #f8f8f8;
     background: url(../img/vc.jpg) no-repeat center center;
     background-size: cover;
+
 }
 
 #banner_content {
@@ -45,7 +46,7 @@ h6 {
     max-width: 660px;
 }
 
-footer {
+.footer2 {
     padding: 10px 0;
     background-color: #101010;
     color:#9d9d9d;
@@ -60,11 +61,36 @@ footer {
     #banner_content {
         padding-bottom: 15%;
     }
-    footer{
+    .footer2{
         text-align:left;
     }
-}
+    .dubba1{
+        width: 150%;
+    }
+    .bagimg{
+        width: 110%
+    }
+    .dubba2{
+        width: 150%;
+        padding: 10px 0;
+        background-color: #101010;
+        color:#9d9d9d;
+        bottom: 0;
 
+    }
+    .footer3{
+        width: 150%;
+    }
+
+}
+.dubba2{
+    width: 100%;
+    padding: 10px 0;
+    background-color: #101010;
+    color:#9d9d9d;
+    bottom: 0;
+
+}
 
 #banner_content1 {
     position: relative;
