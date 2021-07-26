@@ -70,6 +70,12 @@ h6 {
     .bagimg{
         width: 110%
     }
+    .search{
+        border: 2px solid rgb(84, 182, 228);
+        border-radius: 5px;
+        text-align: center;
+        color: black;
+    }
     .dubba2{
         width: 150%;
         padding: 10px 0;

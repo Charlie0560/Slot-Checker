@@ -11,6 +11,9 @@
   <script src="/static/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="responsive-tables.js"></script>
   <link href="responsive-tables.css" type="text/css" media="screen" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css"
+    rel="stylesheet" />
 
 </head>
 
@@ -52,9 +55,8 @@
             <form action="/submit" method="post">
               <h1>Check Slot Availibility</h1>
               <br>
-              <select class="w-100" id="first" data-live-search="true" name="name"
-                style="text-align: center;  border: 2px solid rgb(84, 182, 228); border-radius: 25px; text-align: center; color: black;">
-                <option disabled selected class="dropdown-header">----------Enter District--------</option>
+              <select class="search selectpicker" id="first" data-live-search="true" name="name">
+                <option disabled selected class="dropdown-header">----------Search District--------</option>
                 <option value=" 320 "> Agar </option>
                 <option value=" 796 "> Agatti Island </option>
                 <option value=" 622 "> Agra </option>
