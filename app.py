@@ -6,18 +6,21 @@ app = Flask(__name__)
 OUTPUTS = {}
 
 
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
+
 
 @app.route('/index.html')
 def home():
     return render_template('index.html')
 
+
 @app.route("/about.html")
 def about():
     return render_template("about.html")
+
+
 @app.route("/products.html")
 def products():
     return render_template("products.html")
@@ -39,7 +42,7 @@ def submit():
                            "capacity": session["available_capacity"],
                            "age_limit": session["min_age_limit"],
                            "vaccine": session["vaccine"],
-                           "pincode":center["pincode"]
+                           "pincode": center["pincode"]
                            }
 
         def get_for_seven_days(start_date):
@@ -50,11 +53,12 @@ def submit():
             return [session for session in get_sessions(data) if session["capacity"] > 0 and session["age_limit"] == 18]
 
         def create_output(session_info):
-            return [session_info['date'],session_info['name'],session_info['pincode'],session_info['capacity'],session_info['vaccine']+" "+session_info['type']]
+            return [session_info['date'], session_info['name'], session_info['pincode'], session_info['capacity'],
+                    session_info['vaccine'] + " " + session_info['type']]
 
         content = [create_output(session_info) for session_info in get_for_seven_days(datetime.now())]
         if not content:
-            return render_template("noavailable.html",message="No slots available for your region")
+            return render_template("noavailable.html", message="No slots available for your region")
         else:
-            heading=("DATE","HOSP NAME","PINCODE","CAPACITY","VACCINE,FEE")
-            return render_template("output.html",heading=heading, message = content)
+            heading = ("DATE", "HOSP NAME", "PINCODE", "CAPACITY", "VACCINE,FEE")
+            return render_template("output.html", heading=heading, message=content)
